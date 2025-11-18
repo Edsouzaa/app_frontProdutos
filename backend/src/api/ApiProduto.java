@@ -238,6 +238,5 @@ public class ApiProduto {
             });
 
         System.out.println("API de Produtos iniciada na porta 4567. Acesse: http://localhost:4567/produtos");
-        System.out.println("API de Produtos iniciada na porta 4567. Acesse: http://localhost:4567/categorias");
     }
 }
