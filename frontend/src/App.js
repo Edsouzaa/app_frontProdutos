@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 //import './App.css';
 
@@ -23,6 +23,32 @@ function App() {
       alert("Usuario ou Senha incorretos.");
     }
   }
+  
+  const getCategorias = async () => {
+    try {
+      const response = await fetch("http://localhost:4567/categorias");
+      const data = await response.json();
+      setCategorias(data);
+    } catch (error) {
+      console.error("ERRO: Erro na busca de Categorias ", error )
+    }
+  };
+  
+  const getProdutos = async () => {
+    try {
+      const response = await fetch("http://localhost:4567/produtos");
+      const data = await response.json();
+      setProdutos(data);
+      console.log("Produtos recebidos:", data);
+    } catch (error) {
+      console.error("ERRO: Erro na busca de Usuarios ", error )
+    }
+  };
+  
+  useEffect(() => {
+    getProdutos();
+    getCategorias();
+  }, [])
 
   const handleLogout = () => {
     setIsAuthenticated(false);

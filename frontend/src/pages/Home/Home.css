@@ -1,0 +1,40 @@
+/* Home.css */
+
+/* Container principal da página */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #f4f7fb; /* Cor suave de fundo */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Título principal da página */
+.home-container h1 {
+    font-size: 36px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Texto de descrição */
+.home-container p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 0;
+}
+
+/* Adicionando um toque de responsividade para telas menores */
+@media (max-width: 768px) {
+    .home-container h1 {
+        font-size: 28px;
+    }
+
+    .home-container p {
+        font-size: 16px;
+    }
+}

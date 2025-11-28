@@ -1,0 +1,46 @@
+/* Estilos para Cadastro de Categoria */
+.Cadastro-Categoria {
+  padding: 20px;
+  max-width: 500px;
+  margin: 30px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Cadastro-Categoria h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.Forms-Categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Forms-Categoria label {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.Forms-Categoria input {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+}
+
+.Forms-Categoria button {
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Forms-Categoria button:hover {
+  background-color: #34495e;
+}
