@@ -17,7 +17,7 @@ public class ApiProduto {
     // instancia do DAO e o GSON
     private static final ProdutoDAO produtoDAO = new ProdutoDAO();
     private static final CategoriaDAO categoriaDAO = new CategoriaDAO();
-     private static final Gson gson = new Gson();
+    private static final Gson gson = new Gson();
 
     // constante para garantir que todas as respostas sejam JSON
     private static final String APPLICATION_JSON = "application/json";
@@ -26,6 +26,27 @@ public class ApiProduto {
 
         // configuração do Servidor
         port(4567); // Define a porta da API. Acesso via http://localhost:4567
+
+        options("/*", (request, response) -> {
+    String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+    if (accessControlRequestHeaders != null) {
+        response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+    }
+
+    String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+    if (accessControlRequestMethod != null) {
+        response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+    }
+
+    return "OK";
+});
+
+// Filtro global de CORS
+before((request, response) -> {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    response.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
+});
 
         // filtro para definir o tipo de conteúdo como JSON
         after(new Filter() {
